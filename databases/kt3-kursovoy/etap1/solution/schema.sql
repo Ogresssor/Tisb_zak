@@ -52,7 +52,7 @@ CREATE TABLE sales (
  sale_date TEXT NOT NULL,
  base_price NUMERIC NOT NULL CHECK(base_price>=0),
  discount_pct NUMERIC NOT NULL DEFAULT 0 CHECK(discount_pct BETWEEN 0 AND 100),
- final_amount NUMERIC GENERATED ALWAYS AS (ROUND(base_price*(100-discount_pct)/100,2)) VIRTUAL
+ final_amount NUMERIC GENERATED ALWAYS AS (ROUND(base_price*(100-discount_pct)/100.0,2)) VIRTUAL
 );
 CREATE TABLE payments (
  payment_id INTEGER PRIMARY KEY,
